@@ -932,7 +932,25 @@ label:
             ctrf++;
 
             char *str3 = malloc(sizeof(char) * MAX_LENGTH);
+
+            sameusser:
             scanf("%s", str3);
+            struct node *ptr_usse = main->link;
+            int value;
+            while (ptr_usse != NULL)
+            {
+                value = strcmp(str3, ptr_usse->usern);
+                if (value == 0)
+                {
+                    break;
+                }
+                ptr_usse = ptr_usse->link;
+            }
+            if (value == 0)
+            {
+                printf("USERNAME NOT AVALIBLE PLS TRY DIFFERENT USERNAME \n");
+                goto sameusser;
+            }
         
             printf("enter password  \n");
             char *str4 = malloc(sizeof(char) * MAX_LENGTH);
